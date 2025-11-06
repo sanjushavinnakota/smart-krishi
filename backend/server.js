@@ -13,10 +13,14 @@ const PORT = process.env.PORT || 5050;
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: [
+    'http://localhost:3000',
+    'https://smart-krishi-gz3ctkeai-sanjushavinnakotas-projects.vercel.app'
+  ],
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   credentials: true
 }));
+
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
@@ -56,10 +60,14 @@ app.get('/', (req, res) => {
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000",
+      "https://smart-krishi-gz3ctkeai-sanjushavinnakotas-projects.vercel.app"
+    ],
     methods: ["GET", "POST", "PATCH", "DELETE"]
   }
 });
+
 
 // Attach auction socket
 const auctionSocket = require("./src/sockets/auctionSocket");
