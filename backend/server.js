@@ -15,7 +15,8 @@ const PORT = process.env.PORT || 5050;
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://smart-krishi-gz3ctkeai-sanjushavinnakotas-projects.vercel.app'
+    'https://smart-krishi-gz3ctkeai-sanjushavinnakotas-projects.vercel.app',
+    "https://smart-krishi.netlify.app"
   ],
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   credentials: true
@@ -62,7 +63,8 @@ const io = new Server(httpServer, {
   cors: {
     origin: [
       "http://localhost:3000",
-      "https://smart-krishi-gz3ctkeai-sanjushavinnakotas-projects.vercel.app"
+      "https://smart-krishi-gz3ctkeai-sanjushavinnakotas-projects.vercel.app",
+      "https://smart-krishi.netlify.app"
     ],
     methods: ["GET", "POST", "PATCH", "DELETE"]
   }
